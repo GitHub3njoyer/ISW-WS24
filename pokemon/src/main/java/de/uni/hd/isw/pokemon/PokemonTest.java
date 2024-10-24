@@ -73,6 +73,11 @@ public class PokemonTest {
         ash.showIthPokemon(0);
         System.out.println("Ausgabe des zweiten Pokemon von Ash");
         ash.showIthPokemon(1);
+        System.out.println();
+
+        // Test of toString Trainer
+        System.out.println("Test of toSting ");
+        System.out.println(ash);
     }
     public static void main(String[] args) {
         Test2();
