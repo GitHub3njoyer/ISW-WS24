@@ -43,7 +43,7 @@ public class Trainer {
 
     //Show Trainer Details in Terminal
     public String toString() {
-        return "Name: test jajjafkadölfjasdlkfaf " + fristName + " " +  lastName;
+        return "Name: " + fristName + " " +  lastName;
     }
 
 }

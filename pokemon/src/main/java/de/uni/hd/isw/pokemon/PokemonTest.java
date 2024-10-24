@@ -76,7 +76,7 @@ public class PokemonTest {
         System.out.println();
 
         // Test of toString Trainer
-        System.out.println("Test of toSting ");
+        System.out.println("Test of toSting");
         System.out.println(ash);
 
         // Test that a pokemon that belongs to a trainer can't be added to any trainer
