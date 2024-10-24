@@ -78,6 +78,20 @@ public class PokemonTest {
         // Test of toString Trainer
         System.out.println("Test of toSting ");
         System.out.println(ash);
+
+        // Test that a pokemon that belongs to a trainer can't be added to any trainer
+        System.out.println("Test that a pokemon that belongs to a trainer can't be added to any trainer:");
+        Pokemon p1 = new Pokemon("p1", Type.POISON);
+        Trainer t1 = new Trainer("John", "Doe");
+        Trainer t2 = new Trainer("Alice", "Smith");
+        System.out.println("Test that a pokemon that belongs to a trainer, can't be added to another trainer");
+        t1.addPokemon(p1);
+        t2.addPokemon(p1);
+        System.out.println("Test that a pokemon can't be added to the same trainer twice: ");
+        t1.addPokemon(p1);
+
+
+
     }
     public static void main(String[] args) {
         Test2();
