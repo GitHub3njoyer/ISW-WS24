@@ -2,12 +2,12 @@ package de.uni.hd.isw.pokemon;
 import java.util.ArrayList;
 
 public class Trainer {
-    private String fristName;
+    private String firstName;
     private String lastName;
     private ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 
     Trainer (String first, String last) {
-        this.fristName = first;
+        this.firstName = first;
         this.lastName = last;
     }
 
@@ -43,7 +43,7 @@ public class Trainer {
 
     //Show Trainer Details in Terminal
     public String toString() {
-        return "Name: test jajjafkadölfjasdlkfaf " + fristName + " " +  lastName;
+        return "Name: " + firstName + " " +  lastName;
     }
 
 }
