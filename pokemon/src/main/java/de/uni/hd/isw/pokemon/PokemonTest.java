@@ -1,5 +1,7 @@
 package de.uni.hd.isw.pokemon;
 
+import java.sql.SQLOutput;
+
 public class PokemonTest {
 
 
@@ -92,10 +94,59 @@ public class PokemonTest {
         t2.addPokemon(p1);
         System.out.println("Test that a pokemon can't be added to the same trainer twice: ");
         t1.addPokemon(p1);
+    }
 
+    public static void Test3() {
+
+        Trainer t1 = new Trainer("Malte", "Herzog");
+        Trainer t2 = new Trainer("Igor", "Dimitrov");
+        Pokemon p1 = new Pokemon("Bisasam", Type.POISON);
+        Pokemon p2 = new Pokemon("Glumanda", Type.POISON);
+        Pokemon p3 = new Pokemon("Schiggy", Type.POISON);
+        Pokemon p4 = new Pokemon("Raupy", Type.POISON);
+        Pokemon p5 = new Pokemon("Hornliu", Type.POISON);
+        Pokemon p6 = new Pokemon("Taubsi", Type.POISON);
+        t1.addPokemon(p1);
+        t1.addPokemon(p2);
+        t1.addPokemon(p3);
+        t2.addPokemon(p4);
+        t2.addPokemon(p5);
+        t2.addPokemon(p6);
+
+        System.out.println("Testen der Swap Funktion in mehreren Szenarien:");
+        System.out.println("1. Test: Pokemons tauschen die den selben Trainer haben und die Pokemons sind nicht zum Tausch freigegeben.");
+        new Swap("ID: 1").execute(p1, p2);
+        System.out.println();
+
+        System.out.println("Pokemons werden absofort zum Tausch freigegeben!");
+        p1.isSwapAllowed = true;
+        p2.isSwapAllowed = true;
+        p3.isSwapAllowed = true;
+        p4.isSwapAllowed = true;
+        p5.isSwapAllowed = true;
+        p6.isSwapAllowed = true;
+        System.out.println();
+
+        System.out.println("2. Test: Pokemon Bisasam (t1 Trainer) wird mit Pokemon Raupy getauscht (t2 Trainer)");
+        System.out.println("----------------------------");
+        System.out.println("Pokemon Listen der Trainer vorher!");
+        System.out.println(t1);
+        t1.showPokemons();
+        System.out.println();
+        System.out.println(t2);
+        t2.showPokemons();
+        System.out.println("---------------------------");
+        new Swap("ID: 2").execute(p1, p4);
+        System.out.println("Pokemon Listen der Trainer nachher!");
+        System.out.println(t1);
+        t1.showPokemons();
+        System.out.println();
+        System.out.println(t2);
+        t2.showPokemons();
+        System.out.println("---------------------------");
     }
 
     public static void main(String[] args) {
-        Test2();
+        Test3();
     }
 }

@@ -6,9 +6,24 @@ public class Trainer {
     private String lastName;
     private ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 
+
     Trainer (String first, String last) {
         this.firstName = first;
         this.lastName = last;
+    }
+
+    public String getName() {
+        return firstName + " " + lastName;
+    }
+
+    public Pokemon removePokemon (Pokemon pokemon) {
+        if (pokemon.trainer == this) {
+            this.pokemons.remove(pokemon);
+            pokemon.trainer = null;
+        } else {
+            System.out.println("Pokemon gehörte nicht dem Trainer");
+        }
+        return pokemon;
     }
 
     //Link Pokemon to Trainer in Terminal

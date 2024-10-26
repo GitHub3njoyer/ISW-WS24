@@ -1,5 +1,4 @@
 package de.uni.hd.isw.pokemon;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Pokemon {
@@ -8,7 +7,8 @@ public class Pokemon {
     private int number;
     private static int nextNumber = 1;
     protected Trainer trainer = null;
-    private ArrayList<Swap> swaps = new ArrayList<Swap>();
+    protected ArrayList<Swap> swaps = new ArrayList<Swap>();
+    protected boolean isSwapAllowed = false;
 
 
     //Create Pokemon inb Termianl
