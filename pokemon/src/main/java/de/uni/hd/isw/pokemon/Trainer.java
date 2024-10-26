@@ -11,12 +11,15 @@ public class Trainer {
         this.lastName = last;
     }
 
+    //Link Pokemon to Trainer in Terminal
     public void addPokemon (Pokemon pokemon) {
         if (pokemon.trainer == null) {
             this.pokemons.add(pokemon);
             pokemon.setTrainer(this);
+        } else if (pokemon.trainer == this){
+            System.out.println("Pokemon ist bereits schon Mitglied von diesem Trainer!");
         } else {
-            System.out.println("Pokemon wurde bereits einem Trainer zugewiesen");
+            System.out.println("Pokemon wurde bereits einem Trainer zugewiesen!");
         }
     }
 
