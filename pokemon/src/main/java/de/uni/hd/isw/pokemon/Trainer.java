@@ -2,21 +2,24 @@ package de.uni.hd.isw.pokemon;
 import java.util.ArrayList;
 
 public class Trainer {
-    private String fristName;
+    private String firstName;
     private String lastName;
     private ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 
     Trainer (String first, String last) {
-        this.fristName = first;
+        this.firstName = first;
         this.lastName = last;
     }
 
+    //Link Pokemon to Trainer in Terminal
     public void addPokemon (Pokemon pokemon) {
         if (pokemon.trainer == null) {
             this.pokemons.add(pokemon);
             pokemon.setTrainer(this);
+        } else if (pokemon.trainer == this){
+            System.out.println("Pokemon ist bereits schon Mitglied von diesem Trainer!");
         } else {
-            System.out.println("Pokemon wurde bereits einem Trainer zugewiesen");
+            System.out.println("Pokemon wurde bereits einem Trainer zugewiesen!");
         }
     }
 
@@ -43,7 +46,7 @@ public class Trainer {
 
     //Show Trainer Details in Terminal
     public String toString() {
-        return "Name: " + fristName + " " +  lastName;
+        return "Name: " + firstName + " " +  lastName;
     }
 
 }
