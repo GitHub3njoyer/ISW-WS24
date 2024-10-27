@@ -1,11 +1,9 @@
 package de.uni.hd.isw.pokemon;
 
-import java.sql.SQLOutput;
-
 public class PokemonTest {
 
 
-    public static void Test1() {
+    public static void test1() {
         // testen vom Konstruktor
         System.out.println("Testen vom Konstruktor:");
         Pokemon p1 = new Pokemon("Apollo", Type.POISON);
@@ -47,7 +45,7 @@ public class PokemonTest {
         System.out.println(p1.toString());
     }
 
-    public static void Test2() {
+    public static void test2() {
         Trainer ash = new Trainer("Ash", "ketchum");
         Pokemon glumanda = new Pokemon("glumanda", Type.FIRE);
         Pokemon bisasam = new Pokemon("bisasam", Type.POISON);
@@ -96,7 +94,7 @@ public class PokemonTest {
         t1.addPokemon(p1);
     }
 
-    public static void Test3() {
+    public static void test3() {
 
         Trainer t1 = new Trainer("Malte", "Herzog");
         Trainer t2 = new Trainer("Igor", "Dimitrov");
@@ -115,7 +113,8 @@ public class PokemonTest {
 
         System.out.println("Testen der Swap Funktion in mehreren Szenarien:");
         System.out.println("1. Test: Pokemons tauschen die den selben Trainer haben und die Pokemons sind nicht zum Tausch freigegeben.");
-        new Swap("ID: 1").execute(p1, p2);
+        Swap s1 = new Swap("ID: 1");
+        s1.execute(p1, p2);
         System.out.println();
 
         System.out.println("Pokemons werden absofort zum Tausch freigegeben!");
@@ -144,9 +143,10 @@ public class PokemonTest {
         System.out.println(t2);
         t2.showPokemons();
         System.out.println("---------------------------");
+        System.out.println(s1);
     }
 
     public static void main(String[] args) {
-        Test3();
+        test3();
     }
 }

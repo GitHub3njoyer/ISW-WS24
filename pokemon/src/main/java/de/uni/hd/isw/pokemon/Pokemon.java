@@ -7,7 +7,7 @@ public class Pokemon {
     private int number;
     private static int nextNumber = 1;
     protected Trainer trainer = null;
-    protected ArrayList<Swap> swaps = new ArrayList<Swap>();
+    protected ArrayList<Swap> swaps = new ArrayList<>();
     protected boolean isSwapAllowed = false;
 
 
@@ -49,14 +49,5 @@ public class Pokemon {
     //Link Pokemon to Trainer in Terminal
     public void setTrainer(Trainer trainer) {
         this.trainer = trainer;
-    }
-
-
-    public static void main(String[] args) {
-        Pokemon Shiggy;
-        Shiggy = new Pokemon("Shiggy", Type.WATER);
-        Pokemon Glumanda = new Pokemon("Glumanda", Type.FIRE);
-        System.out.println(Shiggy);
-        System.out.println(Glumanda);
     }
 }
