@@ -9,7 +9,7 @@ public class Pokemon {
     private Trainer trainer = null;
 
     // list of swaps that the pokemon took part in
-    private ArrayList<Swap> swaps = new ArrayList<Swap>();
+    private ArrayList<Swap> swaps = new ArrayList<>();
 
     private boolean isSwapAllowed = true;
 
