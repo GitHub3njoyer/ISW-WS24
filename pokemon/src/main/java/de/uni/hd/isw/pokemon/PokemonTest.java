@@ -3,7 +3,7 @@ package de.uni.hd.isw.pokemon;
 public class PokemonTest {
 
 
-    public static void Test1 () {
+    public static void test1 () {
         // testen vom Konstruktor
         System.out.println("Testen vom Konstruktor:");
         Pokemon p1 = new Pokemon("Apollo", Type.POISON);
@@ -45,7 +45,7 @@ public class PokemonTest {
         System.out.println(p1.toString());
     }
 
-    public static void Test2 () {
+    public static void test2 () {
         Trainer ash = new Trainer("Ash", "ketchum");
         Pokemon glumanda = new Pokemon("glumanda", Type.FIRE);
         Pokemon bisasam = new Pokemon("bisasam", Type.POISON);
@@ -90,7 +90,7 @@ public class PokemonTest {
         try {
             Swap s = new Swap();
             s.execute(p1, p2);
-        } catch (RuntimeException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
         System.out.println("\nCase: swap not allowed for one of the pokemons: ");
@@ -98,7 +98,7 @@ public class PokemonTest {
         try {
             Swap s = new Swap();
             s.execute(p1, p2);
-        } catch (RuntimeException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
 
@@ -107,7 +107,7 @@ public class PokemonTest {
         try {
             Swap s = new Swap();
             s.execute(p1, p2);
-        } catch (RuntimeException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
         System.out.println("pokemons of t1: (Expected pokemon2)");
@@ -130,10 +130,8 @@ public class PokemonTest {
             System.out.println(e.getMessage());
         }
 
-
-
     }
     public static void main(String[] args) {
-        Test2();
+        test2();
     }
 }

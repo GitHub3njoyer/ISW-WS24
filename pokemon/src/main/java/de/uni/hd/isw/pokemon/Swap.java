@@ -24,10 +24,11 @@ public class Swap {
     public void execute(Pokemon pokemon1, Pokemon pokemon2)
     {
         if (!pokemon1.isSwapAllowed() || !pokemon2.isSwapAllowed()) {
-            throw new RuntimeException("swap not allowed if not enabled for both pokemons");
+            throw new IllegalArgumentException("swap not allowed if not enabled for both pokemons");
         }
         if (pokemon1.getTrainer() == pokemon2.getTrainer()) {
-            throw new RuntimeException("swap not allowed for same trainers");
+            throw new IllegalArgumentException("swap not allowed for same trainers");
+
         }
 
         // date of the swap execution
@@ -51,5 +52,13 @@ public class Swap {
 
         pokemon1.addSwap(this);
         pokemon2.addSwap(this);
+    }
+    public String toString() {
+        return "Swap ID: " + swapID + ", " +
+                "Swap date: " + date.toString() + ", " +
+                "pokemon : " + pokemon1.toString() + ", " +
+                "pokemon 2: " + pokemon2.toString() + ", " +
+                "trainer 1: " + trainer1.toString() + ", " +
+                "trainer 2: " + trainer2.toString();
     }
 }

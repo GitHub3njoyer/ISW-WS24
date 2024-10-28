@@ -73,10 +73,10 @@ public class Pokemon {
 
 
     public static void main(String[] args) {
-        Pokemon Shiggy;
-        Shiggy = new Pokemon("Shiggy", Type.WATER);
-        Pokemon Glumanda = new Pokemon("Glumanda", Type.FIRE);
-        System.out.println(Shiggy);
-        System.out.println(Glumanda);
+        Pokemon shiggy;
+        shiggy = new Pokemon("Shiggy", Type.WATER);
+        Pokemon glumanda = new Pokemon("Glumanda", Type.FIRE);
+        System.out.println(shiggy);
+        System.out.println(glumanda);
     }
 }
