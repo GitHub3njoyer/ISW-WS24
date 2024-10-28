@@ -99,8 +99,8 @@ public class PokemonTest {
         Trainer t1 = new Trainer("Malte", "Herzog");
         Trainer t2 = new Trainer("Igor", "Dimitrov");
         Pokemon p1 = new Pokemon("Bisasam", Type.POISON);
-        Pokemon p2 = new Pokemon("Glumanda", Type.POISON);
-        Pokemon p3 = new Pokemon("Schiggy", Type.POISON);
+        Pokemon p2 = new Pokemon("Glumanda", Type.FIRE);
+        Pokemon p3 = new Pokemon("Schiggy", Type.WATER);
         Pokemon p4 = new Pokemon("Raupy", Type.POISON);
         Pokemon p5 = new Pokemon("Hornliu", Type.POISON);
         Pokemon p6 = new Pokemon("Taubsi", Type.POISON);
@@ -112,9 +112,32 @@ public class PokemonTest {
         t2.addPokemon(p6);
 
         System.out.println("Testen der Swap Funktion in mehreren Szenarien:");
-        System.out.println("1. Test: Pokemons tauschen die den selben Trainer haben und die Pokemons sind nicht zum Tausch freigegeben.");
-        Swap s1 = new Swap("ID: 1");
-        s1.execute(p1, p2);
+        System.out.println("1. Test: Pokemons tauschen die den selben Trainer haben");
+        Swap s1 = new Swap();
+        try {
+            s1.execute(p1, p2);
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println();
+
+        p4.isSwapAllowed = true;
+        System.out.println("2. Test: Pokemon p1 ist nicht zum tausch freigegeben");
+        try {
+            s1.execute(p1, p4);
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println();
+
+        p4.isSwapAllowed = false;
+        p1.isSwapAllowed = true;
+        System.out.println("3. Test: Pokemon p2 ist nicht zum tausch freigegeben");
+        try {
+            s1.execute(p1, p4);
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println();
 
         System.out.println("Pokemons werden absofort zum Tausch freigegeben!");
@@ -126,7 +149,7 @@ public class PokemonTest {
         p6.isSwapAllowed = true;
         System.out.println();
 
-        System.out.println("2. Test: Pokemon Bisasam (t1 Trainer) wird mit Pokemon Raupy getauscht (t2 Trainer)");
+        System.out.println("4. Test: Pokemon Bisasam (t1 Trainer) wird mit Pokemon Raupy getauscht (t2 Trainer)");
         System.out.println("----------------------------");
         System.out.println("Pokemon Listen der Trainer vorher!");
         System.out.println(t1);
@@ -135,7 +158,7 @@ public class PokemonTest {
         System.out.println(t2);
         t2.showPokemons();
         System.out.println("---------------------------");
-        new Swap("ID: 2").execute(p1, p4);
+        s1.execute(p1, p4);
         System.out.println("Pokemon Listen der Trainer nachher!");
         System.out.println(t1);
         t1.showPokemons();
@@ -143,6 +166,7 @@ public class PokemonTest {
         System.out.println(t2);
         t2.showPokemons();
         System.out.println("---------------------------");
+
         System.out.println(s1);
     }
 

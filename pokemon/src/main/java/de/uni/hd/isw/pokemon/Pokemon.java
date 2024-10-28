@@ -11,7 +11,7 @@ public class Pokemon {
     protected boolean isSwapAllowed = false;
 
 
-    //Create Pokemon inb Termianl
+    //Create Pokemon in Terminal
     Pokemon(String name, Type type) {
         this.name = name;
         this.type = type;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Trainer {
     private String firstName;
     private String lastName;
-    private ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
+    private ArrayList<Pokemon> pokemons = new ArrayList<>();
 
 
     Trainer (String first, String last) {
