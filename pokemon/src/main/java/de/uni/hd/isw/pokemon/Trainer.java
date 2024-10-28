@@ -12,13 +12,23 @@ public class Trainer {
     }
 
     public void addPokemon (Pokemon pokemon) {
-        if (pokemon.trainer == null) {
+        if (pokemon.getTrainer() == null) {
             this.pokemons.add(pokemon);
             pokemon.setTrainer(this);
         } else {
             System.out.println("Pokemon wurde bereits einem Trainer zugewiesen");
         }
     }
+
+    /**
+     * removes a pokemon from the list of pokemon
+     * @param pokemon the pokemon to be removed
+     */
+    public void removePokemon (Pokemon pokemon) {
+        pokemons.remove(pokemon);
+        pokemon.setTrainer(null);
+    }
+
 
     //List Pokemons for Trainer in Terminal
     public void showPokemons () {

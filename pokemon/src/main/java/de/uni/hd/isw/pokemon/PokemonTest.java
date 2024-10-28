@@ -73,6 +73,65 @@ public class PokemonTest {
         ash.showIthPokemon(0);
         System.out.println("Ausgabe des zweiten Pokemon von Ash");
         ash.showIthPokemon(1);
+
+
+        // Aufgabe 2.2 - Testing swapping pokemons
+        System.out.println();
+        System.out.println("Aufgabe 2.2 - Testing Swapping Pokemons");
+        Trainer t1 = new Trainer("Igor", "Dimitrov");
+        Trainer t2 = new Trainer("Malte", "Herzog");
+        Pokemon p1 = new Pokemon("pokemon 1", Type.POISON);
+        Pokemon p2 = new Pokemon("pokemon 2", Type.FIRE);
+        t1.addPokemon(p1);
+        t2.addPokemon(p2);
+        System.out.println("\nCase: swap not allowed for both pokemons: ");
+        p1.setSwapAllowed(false);
+        p2.setSwapAllowed(false);
+        try {
+            Swap s = new Swap();
+            s.execute(p1, p2);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("\nCase: swap not allowed for one of the pokemons: ");
+        p1.setSwapAllowed(true);
+        try {
+            Swap s = new Swap();
+            s.execute(p1, p2);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("\nCase: swap allowed for both pokemons: ");
+        p2.setSwapAllowed(true);
+        try {
+            Swap s = new Swap();
+            s.execute(p1, p2);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("pokemons of t1: (Expected pokemon2)");
+        t1.showPokemons();
+        System.out.println("Trainer of p1: (Expected t2)");
+        System.out.println(p1.getTrainer());
+
+        System.out.println("pokemons of t2: (Expected pokemon1)");
+        t2.showPokemons();
+        System.out.println("Trainer of p2: (Expected t1)");
+        System.out.println(p2.getTrainer());
+
+        System.out.println("\nCase: swapping pokemons with the same trainer");
+        Pokemon p3 = new Pokemon("pokemon 3", Type.FIRE);
+        t1.addPokemon(p3);
+        try {
+            Swap s = new Swap();
+            s.execute(p2, p3);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+
     }
     public static void main(String[] args) {
         Test2();

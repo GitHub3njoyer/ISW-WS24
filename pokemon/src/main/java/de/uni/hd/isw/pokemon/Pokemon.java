@@ -1,13 +1,19 @@
 package de.uni.hd.isw.pokemon;
+import java.util.ArrayList;
 
 public class Pokemon {
     private String name;
     private Type type;
     private int number;
     private static int nextNumber = 1;
-    protected Trainer trainer = null;
+    private Trainer trainer = null;
 
-    //Create Pokemon inb Termianl
+    // list of swaps that the pokemon took part in
+    private ArrayList<Swap> swaps = new ArrayList<Swap>();
+
+    private boolean isSwapAllowed = true;
+
+    //Create Pokemon in Terminal
     Pokemon(String name, Type type) {
         this.name = name;
         this.type = type;
@@ -42,10 +48,28 @@ public class Pokemon {
         return "Name: " + this.name + "; Type: " + this.type + "; ID: " + this.number;
     }
 
+    public Trainer getTrainer() {return trainer;}
     //Link Pokemon to Trainer in Terminal
     public void setTrainer(Trainer trainer) {
         this.trainer = trainer;
     }
+
+    public void setSwapAllowed(boolean value) {isSwapAllowed = value;}
+
+    /**
+     * Gets the value of isSwapAllowed
+     * @return true if and only if swap is allowed for this pokemon
+     */
+    public boolean isSwapAllowed() {return isSwapAllowed;}
+
+    /**
+     * adds swap object to the pokemon
+      * @param swap object to be added
+     */
+    public void addSwap(Swap swap) {
+        swaps.add(swap);
+    }
+
 
 
     public static void main(String[] args) {
