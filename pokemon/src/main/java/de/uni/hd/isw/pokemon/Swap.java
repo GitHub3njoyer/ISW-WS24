@@ -23,9 +23,18 @@ public class Swap {
      */
     public void execute(Pokemon pokemon1, Pokemon pokemon2)
     {
-        if (!pokemon1.isSwapAllowed() || !pokemon2.isSwapAllowed()) {
-            throw new IllegalArgumentException("swap not allowed if not enabled for both pokemons");
+        if (!pokemon1.isSwapAllowed() && !pokemon2.isSwapAllowed()) {
+            throw new IllegalArgumentException("Swap not allowed for both pokemons");
         }
+
+        if(!pokemon1.isSwapAllowed()) {
+            throw new IllegalArgumentException("Swap not allowed for " + pokemon1.getName());
+        }
+
+        if(!pokemon2.isSwapAllowed()) {
+            throw new IllegalArgumentException("Swap not allowed for " + pokemon2.getName());
+        }
+
         if (pokemon1.getTrainer() == pokemon2.getTrainer()) {
             throw new IllegalArgumentException("swap not allowed for same trainers");
 

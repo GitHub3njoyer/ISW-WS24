@@ -112,12 +112,12 @@ public class PokemonTest {
         }
         System.out.println("pokemons of t1: (Expected pokemon2)");
         t1.showPokemons();
-        System.out.println("Trainer of p1: (Expected t2)");
+        System.out.println("Trainer of p1: (Expected Malte Herzog)");
         System.out.println(p1.getTrainer());
 
         System.out.println("pokemons of t2: (Expected pokemon1)");
         t2.showPokemons();
-        System.out.println("Trainer of p2: (Expected t1)");
+        System.out.println("Trainer of p2: (Expected Igor Dimitrov)");
         System.out.println(p2.getTrainer());
 
         System.out.println("\nCase: swapping pokemons with the same trainer");
