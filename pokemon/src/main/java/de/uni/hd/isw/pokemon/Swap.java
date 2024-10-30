@@ -63,5 +63,5 @@ public class Swap {
 Fragen fürs Tut:
 
 1. Warum protected ArrayList<Swap> swaps = new ArrayList<Swap>();?
-2. protected oder getter methoden machen?
-*/
+
+ */
